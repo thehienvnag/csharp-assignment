@@ -1,0 +1,115 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="CosmeticSale.master.cs" Inherits="CSharpAssignment.CosmeticSale" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>Untitled Page</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Varela+Round" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="Styles/MasterStyle.css" />
+</head>
+<body>
+    <!-- HEADER PART -->
+    <form id="form1" runat="server">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a href="#" class="navbar-brand">Quỳnh Như 's<b> Cosmetic</b></a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+            <div class="navbar-nav">
+                <a href="#" class="nav-item nav-link">Home</a>
+                <a href="#" class="nav-item nav-link">About</a>
+                <div class="nav-item dropdown">
+                    <a href="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">Services</a>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Web Design</a>
+                        <a href="#" class="dropdown-item">Web Development</a>
+                        <a href="#" class="dropdown-item">Graphic Design</a>
+                        <a href="#" class="dropdown-item">Digital Marketing</a>
+                    </div>
+                </div>
+                <a href="#" class="nav-item nav-link active">Pricing</a>
+                <a href="#" class="nav-item nav-link">Blog</a>
+                <a href="#" class="nav-item nav-link">Contact</a>
+            </div>
+            <div class="input-group search-box">
+                <input type="text" id="search" class="form-control" placeholder="Search here..." />
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <i class="material-icons"></i>
+                    </span>
+                </div>
+            </div>
+            <div class="navbar-nav ml-auto action-buttons">
+                <div class="nav-item dropdown">
+                    <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle mr-4" aria-expanded="false">Login</a>
+                    <div class="dropdown-menu action-form">
+                        <p class="hint-text">Sign in with your social media account</p>
+                        <div class="form-group social-btn clearfix">
+                            <a href="#" class="btn btn-secondary facebook-btn float-left"><i class="fa fa-facebook"></i>Facebook</a>
+                            <a href="#" class="btn btn-secondary twitter-btn float-right"><i class="fa fa-twitter"></i>Twitter</a>
+                        </div>
+                        <div class="or-seperator"><b>or</b></div>
+                        <div class="form-group">
+                            <asp:TextBox CssClass="form-control" ID="TxtUsernameLogin" runat="server">Username</asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <asp:TextBox CssClass="form-control" ID="TxtPasswordLogin" runat="server">Password</asp:TextBox>
+                            <asp:Button ID="BtnLogin" runat="server" CssClass="btn btn-primary btn-block" Text="Login" OnClick="BtnLogin_Click" />
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle sign-up-btn" aria-expanded="false">Sign up</a>
+                    <div class="dropdown-menu action-form">
+                        <p class="hint-text">Fill in this form to create your account!</p>
+                        <div class="form-group">
+                            <asp:TextBox CssClass="form-control" ID="TxtUsername" runat="server">Username</asp:TextBox>
+                        </div>
+                         <div class="form-group">
+                            <asp:TextBox CssClass="form-control" ID="TxtEmail" runat="server">Email</asp:TextBox>
+                        </div>
+                         <div class="form-group">
+                            <asp:TextBox CssClass="form-control" ID="TxtFullname" runat="server">Fullname</asp:TextBox>
+                        </div>
+                         <div class="form-group">
+                            <asp:TextBox CssClass="form-control" ID="TxtPassword" runat="server">Password</asp:TextBox>
+                        </div>
+                         <div class="form-group">
+                            <asp:TextBox CssClass="form-control" ID="TxtConfirm" runat="server">Confirm Password</asp:TextBox>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-check-label">&nbsp;<asp:CheckBox ID="ChbAccept" runat="server" />
+                                I accept the <a href="#">Terms &amp; Conditions</a></label>
+                            <asp:Button ID="BtnSignUp" runat="server" CssClass="btn btn-primary btn-block" OnClick="BtnSignUp_Click" Text="Sign Up" />
+                        </div>
+                        &nbsp;</div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- CONTENT PART -->
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script>
+        // Prevent dropdown menu from closing when click inside the form
+        $(document).on("click", ".action-buttons .dropdown-menu", function (e) {
+            e.stopPropagation();
+        });
+    </script>
+</body>
+</html>
